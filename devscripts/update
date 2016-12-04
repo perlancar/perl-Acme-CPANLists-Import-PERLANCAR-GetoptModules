@@ -1,0 +1,61 @@
+#!/usr/bin/env perl
+
+use 5.010;
+use strict;
+use warnings;
+use FindBin '$Bin';
+
+use App::CreateAcmeCPANListsImportModules;
+use Perinci::Sub::Util qw(gen_curried_sub);
+use Perinci::CmdLine::Any;
+
+my %urls = (
+    "01" => "https://perlancar.wordpress.com/2016/12/01/getopt-modules-01-getoptlong/",
+    "02" => "https://perlancar.wordpress.com/2016/12/02/getopt-modules-02-getoptstd/",
+    "03" => "https://perlancar.wordpress.com/2016/12/03/getopt-modules-03-getoptlongdescriptive/",
+    "04" => "https://perlancar.wordpress.com/2016/12/04/getopt-modules-04-getoptcompact/",
+    "05" => "",
+    "06" => "",
+    "07" => "",
+    "08" => "",
+    "09" => "",
+    "10" => "",
+    "11" => "",
+    "12" => "",
+    "13" => "",
+    "14" => "",
+    "15" => "",
+    "16" => "",
+    "17" => "",
+    "18" => "",
+    "19" => "",
+    "20" => "",
+    "21" => "",
+    "22" => "",
+    "23" => "",
+    "24" => "",
+    "25" => "",
+);
+
+gen_curried_sub(
+    'App::CreateAcmeCPANListsImportModules::create_acme_cpanlists_import_modules',
+    {
+        modules => [
+            {
+                name => 'GetoptModules',
+                url => "https://perlancar.wordpress.com/2016/12/02/getopt-modules-02-getoptstd/",
+                extract_urls => [map { $urls{$_} } "01".."24"],
+                summary => "Modules mentioned in PERLANCAR's mini-article series on Getopt modules (2016)",
+            },
+        ],
+        namespace => 'Acme::CPANLists::Import::PERLANCAR',
+        user_agent => 'Mozilla/5.0',
+        dist_dir => "$Bin/..",
+    },
+    'app',
+);
+
+Perinci::CmdLine::Any->new(
+    url => '/main/app',
+    log => 1,
+)->run;
