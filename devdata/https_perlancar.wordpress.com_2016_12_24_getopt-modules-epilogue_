@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html id="ie8" lang="en">
+<![endif]-->
+<!--[if !(IE 8)]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>Getopt modules: Epilogue | perlancar&#039;s blog</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="pingback" href="https://perlancar.wordpress.com/xmlrpc.php" />
+<!--[if lt IE 9]>
+	<script src="https://s0.wp.com/wp-content/themes/pub/able/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+
+<link rel='dns-prefetch' href='//s2.wp.com' />
+<link rel='dns-prefetch' href='//s0.wp.com' />
+<link rel='dns-prefetch' href='//s1.wp.com' />
+<link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel="alternate" type="application/rss+xml" title="perlancar&#039;s blog &raquo; Feed" href="https://perlancar.wordpress.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="perlancar&#039;s blog &raquo; Comments Feed" href="https://perlancar.wordpress.com/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="perlancar&#039;s blog &raquo; Getopt modules: Epilogue Comments Feed" href="https://perlancar.wordpress.com/2016/12/24/getopt-modules-epilogue/feed/" />
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		function addLoadEvent(func) {
+			var oldonload = window.onload;
+			if (typeof window.onload != 'function') {
+				window.onload = func;
+			} else {
+				window.onload = function () {
+					oldonload();
+					func();
+				}
+			}
+		}
+		/* ]]> */
+	</script>
+			<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/72x72\/","ext":".png","svgUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/s1.wp.com\/wp-includes\/js\/wp-emoji-release.min.js?m=1473172720h&ver=4.6.1-RC1-38499"}};
+			!function(a,b,c){function d(a){var c,d,e,f,g,h=b.createElement("canvas"),i=h.getContext&&h.getContext("2d"),j=String.fromCharCode;if(!i||!i.fillText)return!1;switch(i.textBaseline="top",i.font="600 32px Arial",a){case"flag":return i.fillText(j(55356,56806,55356,56826),0,0),!(h.toDataURL().length<3e3)&&(i.clearRect(0,0,h.width,h.height),i.fillText(j(55356,57331,65039,8205,55356,57096),0,0),c=h.toDataURL(),i.clearRect(0,0,h.width,h.height),i.fillText(j(55356,57331,55356,57096),0,0),d=h.toDataURL(),c!==d);case"diversity":return i.fillText(j(55356,57221),0,0),e=i.getImageData(16,16,1,1).data,f=e[0]+","+e[1]+","+e[2]+","+e[3],i.fillText(j(55356,57221,55356,57343),0,0),e=i.getImageData(16,16,1,1).data,g=e[0]+","+e[1]+","+e[2]+","+e[3],f!==g;case"simple":return i.fillText(j(55357,56835),0,0),0!==i.getImageData(16,16,1,1).data[0];case"unicode8":return i.fillText(j(55356,57135),0,0),0!==i.getImageData(16,16,1,1).data[0];case"unicode9":return i.fillText(j(55358,56631),0,0),0!==i.getImageData(16,16,1,1).data[0]}return!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i;for(i=Array("simple","flag","unicode8","diversity","unicode9"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='all-css-0-1' href='https://s1.wp.com/_static/??-eJx9j9EOgjAMRX/I2ShIfDF+yzYaGLRsoVsIf++QqFEML03b3NPbC1NQ1g8RhwicVKDUuEFgCtazEnaE8890tCIH+I+R61Ggwxi07dVz2sgN+ebj48da1wINeaNp77T1I+Y9Bx0XBWPtNBJylu1hHKoXtbRt/ms3wRrVmDCiiMqVXWIV22y0y2VqeWXNDFn4vVlRB4OPLtPybjY3VysIyYA2hCBxJlxUd76dyuu5LC5FWXUPrDmkpQ==' type='text/css' media='all' />
+<link rel='stylesheet' id='droid-serif-css'  href='https://fonts.googleapis.com/css?family=Droid+Serif%3A400%2C700%2C400italic%2C700italic&#038;ver=4.6.1-RC1-38499' type='text/css' media='all' />
+<link rel='stylesheet' id='all-css-2-1' href='https://s2.wp.com/_static/??-eJx9kN0KwjAMhV/IGpSh7kJ8ljTUrpI2pekYvr0bDtwQepVz4Hz5gykbklRdqlAHF51CHi2gZQchEWh9s1MzZZJ4JNUDbIA4msyjD0nBOzEshDVI2hnzZAylhRZnWfwsPcypjW1BSEtzi+WnWvEsWr+bgA5YlllrbVEqFJDnU7zszR+0vm7owLNY5CXwiPdTd+37c3/rLq8PfJqGmA==' type='text/css' media='all' />
+<script type='text/javascript' src='https://s0.wp.com/_static/??-eJyFzt0KwjAMBeAXsiv+Tb0Qn6WrcaQuaW1Shz69HeiFMBQCgZyPQ+yYDLIfyhnEhjq3AvnxXk2Qhf0FDGGfnUJDyB/sIyuwTpZihwOYIpBdX2+16BJnXIqiBCIVzaTfLyHfEca/LIAm568mg+Bzaj3Rcblp2+1qfdjtwws0V1vd'></script>
+<link rel='stylesheet' id='all-css-0-2' href='https://s1.wp.com/wp-content/mu-plugins/highlander-comments/style.css?m=1377793621h' type='text/css' media='all' />
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='highlander-comments-ie7-css'  href='https://s1.wp.com/wp-content/mu-plugins/highlander-comments/style-ie7.css?m=1351637563h&#038;ver=20110606' type='text/css' media='all' />
+<![endif]-->
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://perlancar.wordpress.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://s1.wp.com/wp-includes/wlwmanifest.xml" /> 
+<link rel='prev' title='Getopt modules 23: Getopt::Complete' href='https://perlancar.wordpress.com/2016/12/23/getopt-modules-23-getoptcomplete/' />
+<meta name="generator" content="WordPress.com" />
+<link rel="canonical" href="https://perlancar.wordpress.com/2016/12/24/getopt-modules-epilogue/" />
+<link rel='shortlink' href='http://wp.me/p5E9hG-pL' />
+<link rel="alternate" type="application/json+oembed" href="https://public-api.wordpress.com/oembed/1.0/?format=json&amp;url=https%3A%2F%2Fperlancar.wordpress.com%2F2016%2F12%2F24%2Fgetopt-modules-epilogue%2F&amp;for=wpcom-auto-discovery" /><link rel="alternate" type="application/xml+oembed" href="https://public-api.wordpress.com/oembed/1.0/?format=xml&amp;url=https%3A%2F%2Fperlancar.wordpress.com%2F2016%2F12%2F24%2Fgetopt-modules-epilogue%2F&amp;for=wpcom-auto-discovery" />
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Getopt modules: Epilogue" />
+<meta property="og:url" content="https://perlancar.wordpress.com/2016/12/24/getopt-modules-epilogue/" />
+<meta property="og:description" content="About this mini-article series. For each of the past 24 23 days, I have reviewed a module that parses command-line options (such module is usually under the Getopt::* namespace). First article is h…" />
+<meta property="article:published_time" content="2016-12-23T17:00:00+00:00" />
+<meta property="article:modified_time" content="2016-12-25T01:38:02+00:00" />
+<meta property="og:site_name" content="perlancar&#039;s blog" />
+<meta property="og:image" content="https://s0.wp.com/i/blank.jpg" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:site" content="@wordpressdotcom" />
+<meta name="twitter:card" content="summary" />
+<meta property="fb:app_id" content="249643311490" />
+<meta property="article:publisher" content="https://www.facebook.com/WordPresscom" />
+<link rel="shortcut icon" type="image/x-icon" href="https://s2.wp.com/i/favicon.ico" sizes="16x16 24x24 32x32 48x48" />
+<link rel="icon" type="image/x-icon" href="https://s2.wp.com/i/favicon.ico" sizes="16x16 24x24 32x32 48x48" />
+<link rel="apple-touch-icon-precomposed" href="https://s0.wp.com/i/webclip.png" />
+<link rel='openid.server' href='https://perlancar.wordpress.com/?openidserver=1' />
+<link rel='openid.delegate' href='https://perlancar.wordpress.com/' />
+<link rel="search" type="application/opensearchdescription+xml" href="https://perlancar.wordpress.com/osd.xml" title="perlancar&#039;s blog" />
+<link rel="search" type="application/opensearchdescription+xml" href="https://s1.wp.com/opensearch.xml" title="WordPress.com" />
+<meta name="theme-color" content="#000000" />
+		<style type="text/css">
+			body {
+				background-image: none;
+			}
+		</style>
+			<style type="text/css">
+			.recentcomments a {
+				display: inline !important;
+				padding: 0 !important;
+				margin: 0 !important;
+			}
+
+			table.recentcommentsavatartop img.avatar, table.recentcommentsavatarend img.avatar {
+				border: 0px;
+				margin: 0;
+			}
+
+			table.recentcommentsavatartop a, table.recentcommentsavatarend a {
+				border: 0px !important;
+				background-color: transparent !important;
+			}
+
+			td.recentcommentsavatarend, td.recentcommentsavatartop {
+				padding: 0px 0px 1px 0px;
+				margin: 0px;
+			}
+
+			td.recentcommentstextend {
+				border: none !important;
+				padding: 0px 0px 2px 10px;
+			}
+
+			.rtl td.recentcommentstextend {
+				padding: 0px 10px 2px 0px;
+			}
+
+			td.recentcommentstexttop {
+				border: none;
+				padding: 0px 0px 0px 10px;
+			}
+
+			.rtl td.recentcommentstexttop {
+				padding: 0px 10px 0px 0px;
+			}
+		</style>
+		<meta name="application-name" content="perlancar&#039;s blog" /><meta name="msapplication-window" content="width=device-width;height=device-height" /><meta name="msapplication-tooltip" content="#perl #programming" /><meta name="msapplication-task" content="name=Subscribe;action-uri=https://perlancar.wordpress.com/feed/;icon-uri=https://s2.wp.com/i/favicon.ico" /><meta name="msapplication-task" content="name=Sign up for a free blog;action-uri=http://wordpress.com/signup/;icon-uri=https://s2.wp.com/i/favicon.ico" /><meta name="msapplication-task" content="name=WordPress.com Support;action-uri=http://support.wordpress.com/;icon-uri=https://s2.wp.com/i/favicon.ico" /><meta name="msapplication-task" content="name=WordPress.com Forums;action-uri=http://forums.wordpress.com/;icon-uri=https://s2.wp.com/i/favicon.ico" /><meta name="title" content="Getopt modules: Epilogue | perlancar&#039;s blog on WordPress.com" />
+<meta name="description" content="About this mini-article series. For each of the past 24 23 days, I have reviewed a module that parses command-line options (such module is usually under the Getopt::* namespace). First article is here. This series was born out of my experimentations with option parsing and tab completion, and more broadly of my interest in doing&hellip;" />
+		<script type="text/javascript" src="//c.amazon-adsystem.com/aax2/amzn_ads.js"></script>
+		<script type="text/javascript">
+		try { amznads.getAds("3033"); } catch(e) { /* ignore */ }
+		</script>
+		<script type="text/javascript">
+		try {
+			var a9_p = amznads.getKeys(),
+			_ipw_custom = {
+				wordAds: '0',
+				adSafe: '0',
+				domain: 'perlancar.wordpress.com',
+				pageURL: 'https://perlancar.wordpress.com/2016/12/24/getopt-modules-epilogue/'
+			};
+			if("undefined"!=typeof a9_p&&""!=a9_p&&null!==a9_p&&"[object Array]"===Object.prototype.toString.call(a9_p)){var a="",b=0,c=a9_p.length;a9_p.sort();for(var d=0;d<c;d++){a9_p[d-b]=a9_p[d-b].replace(/a1x6p/,"a160x600p");var e=a9_p[d-b].split("p");e[0]==a&&(a9_p.splice(d-b,1),b++);a=e[0]}_ipw_custom.amznPay=a9_p};document.close();
+		} catch(e) {}
+		</script> 		<script type="text/javascript" src="https://static.criteo.net/js/ld/publishertag.js"></script>
+ 		<script type="text/javascript" src="//s.pubmine.com/head.js"></script>
+		<script type="text/javascript">
+		jQuery(window).ready(function () {
+			jQuery("a.wpa-about").text("About these ads");
+		});
+		</script><link rel="amphtml" href="https://perlancar.wordpress.com/2016/12/24/getopt-modules-epilogue/amp/" /><style type="text/css" id="syntaxhighlighteranchor"></style>
+<script type="text/javascript">
+	window.google_analytics_uacct = "UA-52447-2";
+</script>
+
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-52447-2']);
+	_gaq.push(['_setDomainName', 'wordpress.com']);
+	_gaq.push(['_initData']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+	})();
+</script>
+</head>
+
+<body class="single single-post postid-1597 single-format-standard mp6 customizer-styles-applied one-column highlander-enabled highlander-light">
+<div id="page" class="hfeed site">
+	<div id="site-introduction">
+		<h1 class="site-title"><a href="https://perlancar.wordpress.com/" title="perlancar&#039;s blog" rel="home">perlancar&#039;s blog</a></h1>
+		<h2 class="site-description">#perl #programming</h2>
+	</div><!-- #site-title -->
+	<div id="page-liner">
+		<header id="masthead" class="site-header" role="banner">
+						<div id="headimg">
+				<a href="https://perlancar.wordpress.com/" title="perlancar&#039;s blog" rel="home">
+					<img src="https://perlancar.files.wordpress.com/2015/01/cropped-dsc_10724.jpg" alt="" />
+				</a>
+			</div><!-- #headimg -->
+			
+			<nav role="navigation" class="site-navigation main-navigation">
+				<h1 class="assistive-text">Menu</h1>
+				<div class="assistive-text skip-link"><a href="#content" title="Skip to content">Skip to content</a></div>
+
+				<div class="menu"><ul><li ><a href="https://perlancar.wordpress.com/">Home</a></li><li class="page_item page-item-1"><a href="https://perlancar.wordpress.com/about/">About</a></li></ul></div>
+			</nav><!-- .site-navigation .main-navigation -->
+		</header><!-- #masthead .site-header -->
+
+		<div id="main">
+	<div id="primary" class="site-content">
+		<div id="content" role="main">
+
+		
+			
+<article id="post-1597" class="post-1597 post type-post status-publish format-standard hentry category-cli category-getopt category-perl tag-cli tag-getopt tag-perl">
+	<header class="entry-header">
+		<h1 class="entry-title">Getopt modules: Epilogue</h1>
+
+		<div class="entry-meta">
+			Posted on <a href="https://perlancar.wordpress.com/2016/12/24/getopt-modules-epilogue/" title="12:00 am" rel="bookmark"><time class="entry-date" datetime="2016-12-24T00:00:00+00:00" pubdate>24 December 2016</time></a><span class="byline"> by <span class="author vcard"><a class="url fn n" href="https://perlancar.wordpress.com/author/perlancar/" title="View all posts by perlancar" rel="author">perlancar</a></span></span>		</div><!-- .entry-meta -->
+	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<p><B>About this mini-article series.</B> For each of the past <STRIKE>24</STRIKE> 23 days, I have reviewed a module that parses command-line options (such module is usually under the <TT>Getopt::*</TT> namespace). <A HREF="https://perlancar.wordpress.com/2016/12/01/getopt-modules-01-getoptlong/">First article is here</A>. </p>
+<p>This series was born out of my experimentations with option parsing and tab completion, and more broadly of my interest in doing CLI with Perl. Aside from writing this series, I&#039;ve also released numerous modules related to option parsing, some of them are purely experimental in nature and some already used in production. </p>
+<p>It has been interesting evaluating the various modules: the sometimes unconventional or seemingly odd approach that they take, or the specific features that they offer. Not all of them are worth using, but at least they provide perspectives and some lessons for us to learn. </p>
+<p>Of course, not all modules got reviewed. There are simply far more than 24 modules (<A HREF="https://metacpan.org/pod/lcpan">lcpan</A> tells me that there are 180 packages in the <TT>Getopt::</TT> namespace alone, with 94 distributions having the name <TT>Getopt-*</TT>). I tried to cover at least the must-know ones, core ones, and the popular ones. Other than that, frankly the selection is pretty much random. I picked what&#039;s interesting to me or what I can make some points about, whether they are negative or positive points. </p>
+<p>I have skipped many modules that are just yet another Getopt::Long wrapper which adds per-option usage or some other features found in <A HREF="https://metacpan.org/pod/Getopt::Long::Descriptive">Getopt::Long::Descriptive</A> (GLD). Not that they are worse than GLD, for some reason or another they just didn&#039;t get adopted widely or at all. A couple examples of these: <A HREF="https://metacpan.org/pod/Getopt::Helpful">Getopt::Helpful</A>, <A HREF="https://metacpan.org/pod/Getopt::Fancy">Getopt::Fancy</A>. </p>
+<p>Modules which use <A HREF="https://metacpan.org/pod/Moose">Moose</A>, except <A HREF="https://metacpan.org/pod/MooseX::Getopt">MooseX::Getopt</A>, automatically get skipped by me because their applicability is severely limited by the high number of dependencies and high startup overhead (200-500ms or even more on slower computers). These include: <A HREF="https://metacpan.org/pod/Getopt::Flex">Getopt::Flex</A>, <A HREF="https://metacpan.org/pod/Getopt::Alt">Getopt::Alt</A>, <A HREF="https://metacpan.org/pod/Getopt::Chain">Getopt::Chain</A>. </p>
+<p>Some others are simply too weird or high in &quot;WTF number&quot;, but I won&#039;t name names here. </p>
+<p>Except for <A HREF="https://metacpan.org/pod/App::Cmd">App::Cmd</A> and <A HREF="https://metacpan.org/pod/App::Spec">App::Spec</A>, I haven&#039;t really touched CLI frameworks in general. There are no shortages of CLI frameworks on CPAN too, perhaps for another series? </p>
+<p>I&#039;ve avoided reviewing my own modules, which include <A HREF="https://metacpan.org/pod/Getopt::Long::Complete">Getopt::Long::Complete</A> (Getopt::Long wrapper which adds tab completion), <A HREF="https://metacpan.org/pod/Getopt::Long::Subcommand">Getopt::Long::Subcommand</A> (Getopt::Long wrapper, with support for subcommands), <A HREF="https://metacpan.org/pod/Getopt::Long::More">Getopt::Long::More</A> (my most recent Getopt::Long wrapper which adds tab completion and other features), <A HREF="https://metacpan.org/pod/Getopt::Long::Less">Getopt::Long::Less</A> &amp; <A HREF="https://metacpan.org/pod/Getopt::Long::EvenLess">Getopt::Long::EvenLess</A> (two leaner versions of Getopt::Long for the specific goal of reducing startup overhead), <A HREF="https://metacpan.org/pod/Getopt::Panjang">Getopt::Panjang</A> (a break from Getopt::Long interface compatibility to explore new possibilities), and a CLI framework <A HREF="https://metacpan.org/pod/Perinci::CmdLine::Lite">Perinci::CmdLine</A> (which currently uses Getopt::Long but plans to switch backend in the long run; I&#039;ve written a <A HREF="https://perlancar.wordpress.com/tag/pericmd-tut/">whole series</A> of tutorial posts for this module). </p>
+<p>In general, I&#039;d say that you should probably try to stick with <A HREF="https://metacpan.org/pod/Getopt::Long">Getopt::Long</A> first. As far as option parsing is concerned, it&#039;s packed with features already, and it has the advantage of being a core module. But as soon as you want: automatic autohelp/automessage generation, subcommand, tab completion then you should begin looking elsewhere. </p>
+<p>Unfortunately except for evaluating Perl ports of some option parsing libraries (like <A HREF="https://metacpan.org/pod/Smart::Options">Smart::Options</A>, <A HREF="https://metacpan.org/pod/Getopt::ArgParse">Getopt::ArgParse</A>, <A HREF="https://metacpan.org/pod/Getopt::Kingpin">Getopt::Kingpin</A>), I haven&#039;t got the chance to deeply look into how option parsing is done in other languages. Among the other languages is Perl&#039;s own sister <A HREF="https://perl6.org">Perl 6</A>, which offers <A HREF="https://perl6advent.wordpress.com/2010/12/02/day-2-interacting-with-the-command-line-with-main-subs/">built-in command-line option parsing</A>. This endeavor of researching option parsing in other languages could potentially offer more lessons and perspectives. </p>
+<p>I hope this series is of use to some people. Merry christmas and happy holidays to everybody.</p>
+		<div class="wpcnt">
+			<div class="wpa wpmrec">
+				<a class="wpa-about" href="https://en.support.wordpress.com/about-these-ads/" rel="nofollow"></a>
+				        <div id="crt-995265671" style="width:300px;height:250px;"></div>
+        <script type="text/javascript">
+        var o = document.getElementById('crt-995265671');
+        if ("undefined"!=typeof Criteo) {
+            var p = o.parentNode;
+            p.style.setProperty('display', 'inline-block', 'important');
+            o.style.setProperty('display', 'block', 'important');
+            Criteo.DisplayAcceptableAdIfAdblocked({zoneid:388248,containerid:"crt-995265671",collapseContainerIfNotAdblocked:true});
+        } else {
+            o.style.setProperty('display', 'none', 'important');
+        }
+        </script>
+				<div class="u">
+					<script type='text/javascript'>
+					(function(g){if("undefined"!=typeof g.__ATA){g.__ATA.initAd({sectionId:26942, width:300, height:250});}})(window);
+					</script>
+				</div>
+			</div>
+		</div><div id="jp-post-flair" class="sharedaddy sd-like-enabled sd-sharing-enabled"><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Bagikan ini:</h3><div class="sd-content"><ul><li class="share-twitter"><a rel="nofollow" data-shared="sharing-twitter-1597" class="share-twitter sd-button share-icon" href="https://perlancar.wordpress.com/2016/12/24/getopt-modules-epilogue/?share=twitter" target="_blank" title="Click to share on Twitter"><span>Twitter</span></a></li><li class="share-facebook"><a rel="nofollow" data-shared="sharing-facebook-1597" class="share-facebook sd-button share-icon" href="https://perlancar.wordpress.com/2016/12/24/getopt-modules-epilogue/?share=facebook" target="_blank" title="Share on Facebook"><span>Facebook</span></a></li><li class="share-google-plus-1"><a rel="nofollow" data-shared="sharing-google-1597" class="share-google-plus-1 sd-button share-icon" href="https://perlancar.wordpress.com/2016/12/24/getopt-modules-epilogue/?share=google-plus-1" target="_blank" title="Click to share on Google+"><span>Google</span></a></li><li class="share-end"></li></ul></div></div></div><div class='sharedaddy sd-block sd-like jetpack-likes-widget-wrapper jetpack-likes-widget-unloaded' id='like-post-wrapper-83450492-1597-586092bec0ce8' data-src='//widgets.wp.com/likes/#blog_id=83450492&amp;post_id=1597&amp;origin=perlancar.wordpress.com&amp;obj_id=83450492-1597-586092bec0ce8' data-name='like-post-frame-83450492-1597-586092bec0ce8'><h3 class='sd-title'>Like this:</h3><div class='likes-widget-placeholder post-likes-widget-placeholder' style='height: 55px;'><span class='button'><span>Like</span></span> <span class="loading">Loading...</span></div><span class='sd-text-color'></span><a class='sd-link-color'></a></div></div>			</div><!-- .entry-content -->
+
+	<footer class="entry-meta">
+		This entry was posted in <a href="https://perlancar.wordpress.com/category/cli/" rel="category tag">cli</a>, <a href="https://perlancar.wordpress.com/category/getopt/" rel="category tag">getopt</a>, <a href="https://perlancar.wordpress.com/category/perl/" rel="category tag">perl</a> and tagged <a href="https://perlancar.wordpress.com/tag/cli/" rel="tag">cli</a>, <a href="https://perlancar.wordpress.com/tag/getopt/" rel="tag">getopt</a>, <a href="https://perlancar.wordpress.com/tag/perl/" rel="tag">perl</a>. Bookmark the <a href="https://perlancar.wordpress.com/2016/12/24/getopt-modules-epilogue/" title="Permalink to Getopt modules: Epilogue" rel="bookmark">permalink</a>.
+			</footer><!-- .entry-meta -->
+</article><!-- #post-## -->
+
+				
+		<nav role="navigation" id="nav-below" class="site-navigation post-navigation">
+			<h1 class="assistive-text">Post navigation</h1>
+
+							<div class="nav-previous"><a href="https://perlancar.wordpress.com/2016/12/23/getopt-modules-23-getoptcomplete/" rel="prev"><span class="meta-nav">&larr;</span> Getopt modules 23: Getopt::Complete</a></div>			
+					</nav><!-- #nav-below -->
+
+	
+			
+	<div id="comments" class="comments-area">
+
+	
+			<h2 class="comments-title">
+			5 thoughts on &ldquo;<span>Getopt modules: Epilogue</span>&rdquo;		</h2>
+
+		
+		<ol class="commentlist">
+				<li class="comment even thread-even depth-1 highlander-comment" id="li-comment-136">
+		<article id="comment-136" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt='' src='https://0.gravatar.com/avatar/c6c024b78381fe8a48aed66bf6f7a3af?s=52&#038;d=identicon&#038;r=G' class='avatar avatar-52' height='52' width='52' />					<cite class="fn">VW Xyz</cite> <span class="says">says:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="https://perlancar.wordpress.com/2016/12/24/getopt-modules-epilogue/#comment-136"><time pubdate datetime="2016-12-25T01:17:54+00:00">
+					25 December 2016 at 1:17 am					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>This has been a really nice advent calendar (I found it through the normal one).  Long ago I looked into the Getopt, App, and CLI modules and decided Getopt::Long + Pod::Usage was vastly superior.  App::Cmd was the only interesting one.  But this series got me excited again.  I thought there were too many back then, but it&#8217;s really gotten quite ridiculous at this point!  LOL!</p>
+<p>One U didn&#8217;t cover (because it&#8217;s just a very thin wrapper, which is what I liked) was App::CLI::Toolkit.  I liked Getopt::Kingpin and Getopt::Fancy.  Docopt was one I never would&#8217;ve found without U since it&#8217;s not in the normal name-spaces.  I wonder how U found it!  It actually seems quite cool, but good lord, so many modules!  Another nice one U didn&#8217;t cover was App::Rad (probably the WTF#).</p>
+<p>Alas, in the end, I still think nothing compares to Getopt::Long + Pod::Usage.  For one, argument parsing is pretty basic, so if your module requires a bunch of other non-core modules to be installed, you&#8217;ve done it very wrong.  It would be one thing if you&#8217;re working on a large application with dozens of scripts and other functionality that obviously requires tons of CPAN modules anyway.  But most people are just writing a single script for some singular purpose and to make everyone that uses that script install beaucoup modules is ridiculous (yes, even if all the CPAN installers make this automatic now-a-days, in fact, even more so; it&#8217;s so easy to pollute the OS install now, sigh).  And if the module itself is so convoluted and dramatic that it has to be broken down into more than a single module (maybe 2 or 3 would be acceptable), then you&#8217;ve really gone off the rails.  It&#8217;s command-line parsing, get over yourself, Docopt!  LOL!</p>
+<p>I assume Perinci::CmdLine is some sort of joke to see how many CPAN modules U could get people to install just to write a script.😉  No, I actually assume things like that are intended for people who are using the entire framework.  Frameworks are nice for building medium to large applications, but not so much for just tiny scripts and command-line tools.</p>
+<p>I wish they hadn&#8217;t removed Module::Pluggable from core, because that made subcommands pretty much cake.  Of course, I&#8217;m old and thus a strong believer in the core Unix philosophy of do one thing and do it well, so subcommands seem silly to me, but if U must have them&#8211;App::Rad seems like the best option if U ignore most of the weird features and just stick to the basics; fewer modules and dependencies than App::Cmd; in fact, no non-core deps.  If I needed shell completion, I guess Getopt::Complete (no non-core dependencies) is the best option, which isn&#8217;t saying much.  It&#8217;d be nice if someone would make a simple shell completer module that didn&#8217;t require an entire framework of modules just to use.  Bash::Completion doesn&#8217;t seem very good, but I could be wrong.  Unfortunately, I think completion is just one of those &#8220;complicated&#8221; things, especially if U want to support more than one shell.</p>
+<p>Thanks for doing this series, it was quite enjoyable even if it didn&#8217;t change my mind: Getopt::Long + Pod::Usage&#8211;core modules, still the best.🙂</p>
+<p id="comment-like-136" data-liked=comment-not-liked class="comment-likes comment-not-liked"><a href="https://perlancar.wordpress.com/2016/12/24/getopt-modules-epilogue/?like_comment=136&#038;_wpnonce=1a39f78c0a" class="comment-like-link needs-login" rel="nofollow" data-blog="83450492"><span>Like</span></a><span id="comment-like-count-136" class="comment-like-feedback">Like</span></p>
+</div>
+
+			<div class="reply">
+				<a rel='nofollow' class='comment-reply-link' href='https://perlancar.wordpress.com/2016/12/24/getopt-modules-epilogue/?replytocom=136#respond' onclick='return addComment.moveForm( "comment-136", "136", "respond", "1597" )' aria-label='Reply to VW Xyz'>Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+	<li class="comment byuser comment-author-perlancar bypostauthor odd alt depth-2 highlander-comment" id="li-comment-137">
+		<article id="comment-137" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt='' src='https://0.gravatar.com/avatar/3a54ab2754e30258f8670d426a8eb4f1?s=52&#038;d=identicon&#038;r=G' class='avatar avatar-52' height='52' width='52' />					<cite class="fn"><a href='https://perlancar.wordpress.com' rel='external nofollow' class='url'>perlancar</a></cite> <span class="says">says:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="https://perlancar.wordpress.com/2016/12/24/getopt-modules-epilogue/#comment-137"><time pubdate datetime="2016-12-25T08:56:54+00:00">
+					25 December 2016 at 8:56 am					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Hi,</p>
+<p>Thanks for commenting. As I said in the article about Docopt, the Python library really made some splashes back in 2012, you could read it being discussed on reddit (/r/programming), HackerNews, or other forums.</p>
+<p>The dependencies situation of Perinci::CmdLine is &#8230; a bit unfortunate🙂 I was trying to be modular and split code into many distributions, which I think is proper and has worked really well. But hey, Perinci::CmdLine::Lite currently has a total of 90 direct/indirect non-core modules (in 83 distinct distributions), so that&#8217;s not too bad🙂 I&#8217;m trying to reduce the number of dependencies in the long run. Especially since I write &#8220;tiny&#8221; CLI scripts using it all the time.</p>
+<p>About shell completion: I wish people would stop thinking that completion is &#8220;complicated&#8221; or advanced. It&#8217;s almost 2017 and tab completion should be a basic feature that is taken for granted. Getopt::Complete doesn&#8217;t have non-core dependency, but it&#8217;s really still buggy at this moment. I&#8217;d recommend you try my Getopt::Long::More. It only has 14 non-core module dependency, most of those modules are small. Or at least Getopt::Long::Complete.</p>
+<p id="comment-like-137" data-liked=comment-not-liked class="comment-likes comment-not-liked"><a href="https://perlancar.wordpress.com/2016/12/24/getopt-modules-epilogue/?like_comment=137&#038;_wpnonce=6c30dd5d9b" class="comment-like-link needs-login" rel="nofollow" data-blog="83450492"><span>Like</span></a><span id="comment-like-count-137" class="comment-like-feedback">Like</span></p>
+</div>
+
+			<div class="reply">
+				<a rel='nofollow' class='comment-reply-link' href='https://perlancar.wordpress.com/2016/12/24/getopt-modules-epilogue/?replytocom=137#respond' onclick='return addComment.moveForm( "comment-137", "137", "respond", "1597" )' aria-label='Reply to perlancar'>Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-ronsavage55555 even thread-odd thread-alt depth-1 highlander-comment" id="li-comment-142">
+		<article id="comment-142" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt='' src='https://1.gravatar.com/avatar/4f7d4348bab758c5558ca9f3ccbc1329?s=52&#038;d=identicon&#038;r=G' class='avatar avatar-52' height='52' width='52' />					<cite class="fn">Ron Savage</cite> <span class="says">says:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="https://perlancar.wordpress.com/2016/12/24/getopt-modules-epilogue/#comment-142"><time pubdate datetime="2016-12-26T08:23:19+00:00">
+					26 December 2016 at 8:23 am					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Hi. This time OK. I logged in via a WordPress un/pw.<br />
+I did wonder if you&#8217;d seen Getopt::Simple, but I have no problem with you not discussing it. I don&#8217;t use it anymore, preferring to stick with Getopt::Long.<br />
+Cheers</p>
+<p id="comment-like-142" data-liked=comment-not-liked class="comment-likes comment-not-liked"><a href="https://perlancar.wordpress.com/2016/12/24/getopt-modules-epilogue/?like_comment=142&#038;_wpnonce=aae3c0c6ea" class="comment-like-link needs-login" rel="nofollow" data-blog="83450492"><span>Like</span></a><span id="comment-like-count-142" class="comment-like-feedback">Like</span></p>
+</div>
+
+			<div class="reply">
+				<a rel='nofollow' class='comment-reply-link' href='https://perlancar.wordpress.com/2016/12/24/getopt-modules-epilogue/?replytocom=142#respond' onclick='return addComment.moveForm( "comment-142", "142", "respond", "1597" )' aria-label='Reply to Ron Savage'>Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	<ul class="children">
+	<li class="comment byuser comment-author-perlancar bypostauthor odd alt depth-2 highlander-comment" id="li-comment-144">
+		<article id="comment-144" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt='' src='https://0.gravatar.com/avatar/3a54ab2754e30258f8670d426a8eb4f1?s=52&#038;d=identicon&#038;r=G' class='avatar avatar-52' height='52' width='52' />					<cite class="fn"><a href='https://perlancar.wordpress.com' rel='external nofollow' class='url'>perlancar</a></cite> <span class="says">says:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="https://perlancar.wordpress.com/2016/12/24/getopt-modules-epilogue/#comment-144"><time pubdate datetime="2016-12-26T09:19:27+00:00">
+					26 December 2016 at 9:19 am					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Hi Ron,</p>
+<p>Yes, I did evaluate Getopt::Simple. It has the right basic idea of using a hash for every option, to allow specifying various stuffs from usage message to default value to association with an environment variable. Getopt::Simple doesn&#8217;t yet allow expressing that an option is required. Other than that I think Getopt::Simple is mostly OK.</p>
+<p id="comment-like-144" data-liked=comment-not-liked class="comment-likes comment-not-liked"><a href="https://perlancar.wordpress.com/2016/12/24/getopt-modules-epilogue/?like_comment=144&#038;_wpnonce=b4aa7d7e1b" class="comment-like-link needs-login" rel="nofollow" data-blog="83450492"><span>Like</span></a><span id="comment-like-count-144" class="comment-like-feedback">Like</span></p>
+</div>
+
+			<div class="reply">
+				<a rel='nofollow' class='comment-reply-link' href='https://perlancar.wordpress.com/2016/12/24/getopt-modules-epilogue/?replytocom=144#respond' onclick='return addComment.moveForm( "comment-144", "144", "respond", "1597" )' aria-label='Reply to perlancar'>Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-ronsavage55555 even thread-even depth-1 highlander-comment" id="li-comment-143">
+		<article id="comment-143" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<img alt='' src='https://1.gravatar.com/avatar/4f7d4348bab758c5558ca9f3ccbc1329?s=52&#038;d=identicon&#038;r=G' class='avatar avatar-52' height='52' width='52' />					<cite class="fn">Ron Savage</cite> <span class="says">says:</span>				</div><!-- .comment-author .vcard -->
+				
+				<div class="comment-meta commentmetadata">
+					<a href="https://perlancar.wordpress.com/2016/12/24/getopt-modules-epilogue/#comment-143"><time pubdate datetime="2016-12-26T08:26:27+00:00">
+					26 December 2016 at 8:26 am					</time></a>
+									</div><!-- .comment-meta .commentmetadata -->
+			</footer>
+
+			<div class="comment-content"><p>Hi. Repeating the comment I could not enter via a G+ failed login:<br />
+Thanx for this series. I&#8217;ve added it to my module reviews page: <a href="http://savage.net.au/Module-reviews.html" rel="nofollow">http://savage.net.au/Module-reviews.html</a></p>
+<p id="comment-like-143" data-liked=comment-not-liked class="comment-likes comment-not-liked"><a href="https://perlancar.wordpress.com/2016/12/24/getopt-modules-epilogue/?like_comment=143&#038;_wpnonce=7bb226dd37" class="comment-like-link needs-login" rel="nofollow" data-blog="83450492"><span>Like</span></a><span id="comment-like-count-143" class="comment-like-feedback">Like</span></p>
+</div>
+
+			<div class="reply">
+				<a rel='nofollow' class='comment-reply-link' href='https://perlancar.wordpress.com/2016/12/24/getopt-modules-epilogue/?replytocom=143#respond' onclick='return addComment.moveForm( "comment-143", "143", "respond", "1597" )' aria-label='Reply to Ron Savage'>Reply</a>			</div><!-- .reply -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+		</ol><!-- .commentlist -->
+
+		
+	
+	
+					<div id="respond" class="comment-respond">
+			<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/2016/12/24/getopt-modules-epilogue/#respond" style="display:none;">Cancel reply</a></small></h3>				<form action="https://perlancar.wordpress.com/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+					<input type="hidden" id="highlander_comment_nonce" name="highlander_comment_nonce" value="d0989347aa" /><input type="hidden" name="_wp_http_referer" value="/2016/12/24/getopt-modules-epilogue/" />
+<input type="hidden" name="hc_post_as" id="hc_post_as" value="guest" />
+
+<div class="comment-form-field comment-textarea">
+	<label for="comment">Enter your comment here...</label>
+	<div id="comment-form-comment"><textarea id="comment" name="comment" title="Enter your comment here..."></textarea></div>
+</div>
+
+<div id="comment-form-identity">
+
+	<div id="comment-form-nascar">
+		<p>Fill in your details below or click an icon to log in:</p>
+		<ul>
+			<li class="selected" style="display:none;">
+				<a href="#comment-form-guest" id="postas-guest" title="Guest">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="#comment-form-load-service:WordPress.com" id="postas-wordpress" title="WordPress.com">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="#comment-form-load-service:Twitter" id="postas-twitter" title="Twitter">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="#comment-form-load-service:Facebook" id="postas-facebook" title="Facebook">
+					<span></span>
+				</a>
+			</li>
+			<li>
+			<iframe id="googleplus-sign-in" name="googleplus-sign-in" src="https://public-api.wordpress.com/connect/?googleplus-sign-in=https%3A%2F%2Fperlancar.wordpress.com" width="24" height="24" scrolling="no" allowtransparency="true" seamless="seamless" frameborder="0"></iframe>
+			</li>
+		</ul>
+	</div>
+
+	<div id="comment-form-guest" class="comment-form-service selected">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+<a href="https://gravatar.com/site/signup/" target="_blank">				<img src="https://1.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=25&amp;d=identicon&amp;forcedefault=y&amp;r=G" alt="Gravatar" width="25" class="no-grav" />
+</a>			</div>
+
+				<div class="comment-form-fields">
+				<div class="comment-form-field comment-form-email">
+					<label for="email">Email <span class="required">(required)</span> <span class="nopublish">(Address never made public)</span></label>
+					<div class="comment-form-input"><input id="email" name="email" type="email" value="" /></div>
+				</div>
+				<div class="comment-form-field comment-form-author">
+					<label for="author">Name <span class="required">(required)</span></label>
+					<div class="comment-form-input"><input id="author" name="author" type="text" value="" /></div>
+				</div>
+				<div class="comment-form-field comment-form-url">
+					<label for="url">Website</label>
+					<div class="comment-form-input"><input id="url" name="url" type="url" value="" /></div>
+				</div>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-wordpress" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="https://1.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=25&amp;d=identicon&amp;forcedefault=y&amp;r=G" alt="WordPress.com Logo" width="25" class="no-grav" />
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="wp_avatar" id="wordpress-avatar" class="comment-meta-wordpress" value="" />
+				<input type="hidden" name="wp_user_id" id="wordpress-user_id" class="comment-meta-wordpress" value="" />
+				<input type="hidden" name="wp_access_token" id="wordpress-access_token" class="comment-meta-wordpress" value="" />
+				<p class="comment-form-posting-as pa-wordpress"><strong></strong> You are commenting using your WordPress.com account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( 'wordpress' );">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-twitter" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="https://1.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=25&amp;d=identicon&amp;forcedefault=y&amp;r=G" alt="Twitter picture" width="25" class="no-grav" />
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="twitter_avatar" id="twitter-avatar" class="comment-meta-twitter" value="" />
+				<input type="hidden" name="twitter_user_id" id="twitter-user_id" class="comment-meta-twitter" value="" />
+				<input type="hidden" name="twitter_access_token" id="twitter-access_token" class="comment-meta-twitter" value="" />
+				<p class="comment-form-posting-as pa-twitter"><strong></strong> You are commenting using your Twitter account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( 'twitter' );">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-facebook" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="https://1.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=25&amp;d=identicon&amp;forcedefault=y&amp;r=G" alt="Facebook photo" width="25" class="no-grav" />
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="fb_avatar" id="facebook-avatar" class="comment-meta-facebook" value="" />
+				<input type="hidden" name="fb_user_id" id="facebook-user_id" class="comment-meta-facebook" value="" />
+				<input type="hidden" name="fb_access_token" id="facebook-access_token" class="comment-meta-facebook" value="" />
+				<p class="comment-form-posting-as pa-facebook"><strong></strong> You are commenting using your Facebook account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( 'facebook' );">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-googleplus" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="https://1.gravatar.com/avatar/ad516503a11cd5ca435acc9bb6523536?s=25&amp;d=identicon&amp;forcedefault=y&amp;r=G" alt="Google+ photo" width="25" class="no-grav" />
+			</div>
+
+				<div class="comment-form-fields">
+				<input type="hidden" name="googleplus_avatar" id="googleplus-avatar" class="comment-meta-googleplus" value="" />
+				<input type="hidden" name="googleplus_user_id" id="googleplus-user_id" class="comment-meta-googleplus" value="" />
+				<input type="hidden" name="googleplus_access_token" id="googleplus-access_token" class="comment-meta-googleplus" value="" />
+				<p class="comment-form-posting-as pa-googleplus"><strong></strong> You are commenting using your Google+ account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout( 'googleplus' );">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+
+	<div id="comment-form-load-service" class="comment-form-service">
+		<div class="comment-form-posting-as-cancel"><a href="javascript:HighlanderComments.cancelExternalWindow();">Cancel</a></div>
+		<p>Connecting to %s</p>
+	</div>
+
+</div>
+
+<script type="text/javascript">
+var highlander_expando_javascript = function(){
+	var input = document.createElement( 'input' ),
+	    comment = jQuery( '#comment' );
+
+	if ( 'placeholder' in input ) {
+		comment.attr( 'placeholder', jQuery( '.comment-textarea label' ).remove().text() );
+	}
+
+	// Expando Mode: start small, then auto-resize on first click + text length
+	jQuery( '#comment-form-identity' ).hide();
+	jQuery( '#comment-form-subscribe' ).hide();
+	jQuery( '#commentform .form-submit' ).hide();
+
+	comment.css( { 'height':'10px' } ).one( 'focus', function() {
+		var timer = setInterval( HighlanderComments.resizeCallback, 10 )
+		jQuery( this ).animate( { 'height': HighlanderComments.initialHeight } ).delay( 100 ).queue( function(n) { clearInterval( timer ); HighlanderComments.resizeCallback(); n(); } );
+		jQuery( '#comment-form-identity' ).slideDown();
+		jQuery( '#comment-form-subscribe' ).slideDown();
+		jQuery( '#commentform .form-submit' ).slideDown();
+	});
+}
+jQuery(document).ready( highlander_expando_javascript );
+</script>
+
+<div id="comment-form-subscribe">
+	<p class="comment-subscription-form"><input type="checkbox" name="subscribe" id="subscribe" value="subscribe" style="width: auto;"/> <label class="subscribe-label" id="subscribe-label" for="subscribe" style="display: inline;">Notify me of new comments via email.</label></p></div>
+
+
+
+
+<p class="form-submit"><input name="submit" type="submit" id="comment-submit" class="submit" value="Post Comment" /> <input type='hidden' name='comment_post_ID' value='1597' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="e2acf43e30" /></p>
+<input type="hidden" name="genseq" value="1482724030" />
+<p style="display: none;"><input type="hidden" id="ak_js" name="ak_js" value="208"/></p>				</form>
+					</div><!-- #respond -->
+		<div style="clear: both"></div>
+</div><!-- #comments .comments-area -->
+
+		
+		</div><!-- #content -->
+	</div><!-- #primary .site-content -->
+
+
+		</div><!-- #main -->
+
+		<footer id="colophon" class="site-footer" role="contentinfo">
+			
+			<div class="site-info">
+				<a href="https://wordpress.com/?ref=footer_website">Create a free website or blog at WordPress.com.</a>
+				
+							</div><!-- .site-info -->
+		</footer><!-- #colophon .site-footer -->
+	</div><!-- #page-liner -->
+</div><!-- #page .hfeed .site -->
+
+<!--  -->
+<script type='text/javascript' src='//0.gravatar.com/js/gprofiles.js?ver=201652y'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://s1.wp.com/wp-content/mu-plugins/gravatar-hovercards/wpgroho.js?m=1380573781h'></script>
+
+	<script>
+		//initialize and attach hovercards to all gravatars
+		jQuery( document ).ready( function( $ ) {
+
+			if (typeof Gravatar === "undefined"){
+				return;
+			}
+
+			if ( typeof Gravatar.init !== "function" ) {
+				return;
+			}			
+
+			Gravatar.profile_cb = function( hash, id ) {
+				WPGroHo.syncProfileData( hash, id );
+			};
+			Gravatar.my_hash = WPGroHo.my_hash;
+			Gravatar.init( 'body', '#wp-admin-bar-my-account' );
+		});
+	</script>
+
+		<div style="display:none">
+	<div class="grofile-hash-map-c6c024b78381fe8a48aed66bf6f7a3af">
+	</div>
+	<div class="grofile-hash-map-3a54ab2754e30258f8670d426a8eb4f1">
+	</div>
+	<div class="grofile-hash-map-4f7d4348bab758c5558ca9f3ccbc1329">
+	</div>
+	</div>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var HighlanderComments = {"loggingInText":"Logging In\u2026","submittingText":"Posting Comment\u2026","postCommentText":"Post Comment","connectingToText":"Connecting to %s","commentingAsText":"%1$s: You are commenting using your %2$s account.","logoutText":"Log Out","loginText":"Log In","connectURL":"https:\/\/perlancar.wordpress.com\/public.api\/connect\/?action=request","logoutURL":"https:\/\/perlancar.wordpress.com\/wp-login.php?action=logout&_wpnonce=75a6c7903b","homeURL":"https:\/\/perlancar.wordpress.com\/","postID":"1597","gravDefault":"identicon","enterACommentError":"Please enter a comment","enterEmailError":"Please enter your email address here","invalidEmailError":"Invalid email address","enterAuthorError":"Please enter your name here","gravatarFromEmail":"This picture will show whenever you leave a comment. Click to customize it.","logInToExternalAccount":"Log in to use details from one of these accounts.","change":"Change","changeAccount":"Change Account","comment_registration":"0","userIsLoggedIn":"","isJetpack":"0","text_direction":"ltr"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://s2.wp.com/_static/??/wp-content/js/jquery/jquery.autoresize.js,/wp-content/mu-plugins/highlander-comments/script.js?m=1479964158j'></script>
+
+<script type='text/javascript'>/*<![CDATA[*/if(typeof(addLoadEvent)!='undefined'){addLoadEvent(function(){if(top==self){i=document.createElement('img');i.src='https://botd2.wordpress.com/botd.gif?blog=83450492&post=1597&lang=en&date=1482512400&ip=120.188.0.13&url=https://perlancar.wordpress.com/2016/12/24/getopt-modules-epilogue/';i.id='botd2';i.style.width='0px';i.style.height='0px';i.style.overflow='hidden';document.body.appendChild(i);}});}/*]]>*/</script>
+
+	<script type="text/javascript">
+		window.WPCOM_sharing_counts = {"https:\/\/perlancar.wordpress.com\/2016\/12\/24\/getopt-modules-epilogue\/":1597};
+	</script>
+		<script type="text/javascript">
+			var windowOpen;
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-twitter' ).on( 'click', function() {
+				if ( 'undefined' !== typeof windowOpen ){ // If there's another sharing window open, close it.
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery(this).attr( 'href' ), 'wpcomtwitter', 'menubar=1,resizable=1,width=600,height=350' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript">
+			var windowOpen;
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-facebook' ).on( 'click', function() {
+				if ( 'undefined' !== typeof windowOpen ){ // If there's another sharing window open, close it.
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery(this).attr( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript">
+			var windowOpen;
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-google-plus-1' ).on( 'click', function() {
+				if ( 'undefined' !== typeof windowOpen ){ // If there's another sharing window open, close it.
+					windowOpen.close();
+				}
+				windowOpen = window.open( jQuery(this).attr( 'href' ), 'wpcomgoogle-plus-1', 'menubar=1,resizable=1,width=480,height=550' );
+				return false;
+			});
+		});
+		</script>
+		<script type='text/javascript' src='https://s1.wp.com/wp-content/mu-plugins/akismet-3.0/_inc/form.js?m=1404442431h'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var comment_like_text = {"loading":"Loading..."};
+/* ]]> */
+</script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var actionbardata = {"siteID":"83450492","siteName":"perlancar's blog","siteURL":"http:\/\/perlancar.wordpress.com","icon":"<img alt='' src='https:\/\/s1.wp.com\/i\/void.gif' class='avatar avatar-36' height='36' width='36' \/>","canManageOptions":"","canCustomizeSite":"","isFollowing":"","themeSlug":"pub\/able","signupURL":"https:\/\/wordpress.com\/start\/","loginURL":"https:\/\/perlancar.wordpress.com\/wp-login.php?redirect_to=https%3A%2F%2Fperlancar.wordpress.com%2F2016%2F12%2F24%2Fgetopt-modules-epilogue%2F","themeURL":"https:\/\/wordpress.com\/themes\/able\/","xhrURL":"https:\/\/perlancar.wordpress.com\/wp-admin\/admin-ajax.php","nonce":"fbf38173e5","isSingular":"1","isFolded":"","isLoggedIn":"","isMobile":"","subscribeNonce":"<input type=\"hidden\" id=\"_wpnonce\" name=\"_wpnonce\" value=\"529d03a345\" \/>","referer":"https:\/\/perlancar.wordpress.com\/2016\/12\/24\/getopt-modules-epilogue\/","canFollow":"1","statusMessage":"","customizeLink":"https:\/\/perlancar.wordpress.com\/wp-admin\/customize.php?url=https%3A%2F%2Fperlancar.wordpress.com%2F2016%2F12%2F24%2Fgetopt-modules-epilogue%2F","postID":"1597","shortlink":"http:\/\/wp.me\/p5E9hG-pL","canEditPost":"","editLink":"https:\/\/wordpress.com\/post\/perlancar.wordpress.com\/1597","i18n":{"view":"View Site","follow":"Follow","following":"Following","edit":"Edit","login":"Log In","signup":"Sign Up","customize":"Customize","report":"Report this content","themeInfo":"Get theme: Able","shortlink":"Copy shortlink","copied":"Copied","followedText":"New posts from this site will now appear in your <a href=\"https:\/\/wordpress.com\/\">Reader<\/a>","foldBar":"Collapse this bar","unfoldBar":"Expand this bar","editFollows":"Manage Sites I Follow","editSubs":"Manage Subscriptions","viewReader":"View Site in the Reader","subscribe":"Sign me up","enterEmail":"Enter your email address","followers":"","alreadyUser":"Already have a WordPress.com account? <a href=\"https:\/\/perlancar.wordpress.com\/wp-login.php?redirect_to=https%3A%2F%2Fperlancar.wordpress.com%2F2016%2F12%2F24%2Fgetopt-modules-epilogue%2F\">Log in now.<\/a>"}};
+/* ]]> */
+</script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var sharing_js_options = {"lang":"en","counts":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://s0.wp.com/_static/??-eJyVjksOwjAMBS9EMAhE2SDOkqamdXE+xEmB25MKtQIWlVjZep55MtyDMt4ldAl6gQYHMhge615W8HGyWQXOLTkBpisK3DJm7LRrGOMCbLy1JVJvqR/tGuROAf+RvoJfMXVoCxZyDbpmHHmxmlkVJU8wOcO5+W6LGPi5tuQWXtFNuataR7BaEsayKT9gjDSWzdlSg0nk3dgwbwt08JLUhTVFkE5Hcu00i3S2p+2+Oux2x0O16V8LaaUF'></script>
+<script type="text/javascript">
+// <![CDATA[
+(function() {
+try{
+  if ( window.external &&'msIsSiteMode' in window.external) {
+    if (window.external.msIsSiteMode()) {
+      var jl = document.createElement('script');
+      jl.type='text/javascript';
+      jl.async=true;
+      jl.src='/wp-content/plugins/ie-sitemode/custom-jumplist.php';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jl, s);
+    }
+  }
+}catch(e){}
+})();
+// ]]>
+</script>	<script type="text/javascript">
+	var skimlinks_pub_id = "725X584219"
+	var skimlinks_sitename = "perlancar.wordpress.com";
+	</script>
+	<script type="text/javascript" src="https://s.skimresources.com/js/725X1342.skimlinks.js"></script>		<iframe src='https://widgets.wp.com/likes/master.html?ver=20160429#ver=20160429' scrolling='no' id='likes-master' name='likes-master' style='display:none;'></iframe>
+		<div id='likes-other-gravatars'><div class="likes-text"><span>%d</span> bloggers like this:</div><ul class="wpl-avatars sd-like-gravatars"></ul></div>
+		<script>
+			var _comscore = _comscore || [];
+			_comscore.push({
+				c1: "2",
+				c2: "7518284"
+			});
+			(function() {
+				var s = document.createElement("script"),
+					el = document.getElementsByTagName("script")[0];
+				s.async = true;
+				s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+				el.parentNode.insertBefore(s, el);
+			})();
+		</script>
+		<noscript>
+			<p class="robots-nocontent"><img src="https://sb.scorecardresearch.com/p?c1=2&c2=7518284&c3=&c4=&c5=&c6=&c15=&cv=2.0&cj=1" alt="" style="display:none;" width="1" height="1" /></p>
+		</noscript><script src="//stats.wp.com/w.js?55" type="text/javascript" async defer></script>
+<script type="text/javascript">
+_tkq = window._tkq || [];
+_stq = window._stq || [];
+_tkq.push(['storeContext', {'blog_id':'83450492','blog_tz':'7','user_lang':'en','blog_lang':'en','user_id':'0'}]);
+_stq.push(['view', {'blog':'83450492','v':'wpcom','tz':'7','user_id':'0','post':'1597','subd':'perlancar'}]);
+_stq.push(['extra', {'crypt':'UE5XaGUuOTlwaD85flAmcm1mcmZsaDhkV11YdWFnNncxc1tjZG9XVXhRU08rYjIuSnFPfDlnZCtoZGo9NHVQLC9uOWFuaVh1eC5hfE5wbisuSFguTnhRV1hESTZnK0grPUxEblowT0NVWDAmcG14SHhTSnVnUE5RN180WDR0V0JRWWFkSDg1ek9CVWFBLDBmcklrLWhWck5GdkFyViUtL3lwOVgzcF80fFdMaFJkM2VCTi8xND9uOHhsXXguTWI0ayxPUDNTNVNBLEJEfmJidiw0cmR6bEwsdD1vOThEbnxwdj9vYzNJ'}]);
+_stq.push([ 'clickTrackerInit', '83450492', '1597' ]);
+	</script>
+<noscript><img src="https://pixel.wp.com/b.gif?v=noscript" style="height:0px;width:0px;overflow:hidden" alt="" /></noscript>
+<script>
+if ( 'object' === typeof wpcom_mobile_user_agent_info ) {
+
+	wpcom_mobile_user_agent_info.init();
+	var mobileStatsQueryString = "";
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedPlatformName )
+		mobileStatsQueryString += "&x_" + 'mobile_platforms' + '=' + wpcom_mobile_user_agent_info.matchedPlatformName;
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedUserAgentName )
+		mobileStatsQueryString += "&x_" + 'mobile_devices' + '=' + wpcom_mobile_user_agent_info.matchedUserAgentName;
+	
+	if( wpcom_mobile_user_agent_info.isIPad() )
+		mobileStatsQueryString += "&x_" + 'ipad_views' + '=' + 'views';
+
+	if( "" != mobileStatsQueryString ) {
+		new Image().src = document.location.protocol + '//pixel.wp.com/g.gif?v=wpcom-no-pv' + mobileStatsQueryString + '&baba=' + Math.random();
+	}
+	
+}
+</script>
+</body>
+</html>

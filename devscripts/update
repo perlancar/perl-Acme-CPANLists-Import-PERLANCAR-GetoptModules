@@ -36,6 +36,24 @@ my %urls = (
     "24" => "https://perlancar.wordpress.com/2016/12/24/getopt-modules-epilogue/",
 );
 
+# from App::CreateAcmeCPANListsImportModules
+sub _url_to_filename {
+    my $url = shift;
+    $url =~ s![^A-Za-z0-9_.-]+!_!g;
+    $url;
+}
+
+# 2016-12-26 - on this day on my computer, LWP::UserAgent, HTTP::Tinyish all
+# fail, why? let's download all using wget cli
+if (0) {
+    use IPC::System::Options qw(system);
+    for my $day (sort keys %urls) {
+        my $url = $urls{$day};
+        my $filename = "$Bin/../devdata/"._url_to_filename($url);
+        system({die=>1, log=>1}, "wget", "-O", $filename, $url);
+    }
+}
+
 gen_curried_sub(
     'App::CreateAcmeCPANListsImportModules::create_acme_cpanlists_import_modules',
     {
